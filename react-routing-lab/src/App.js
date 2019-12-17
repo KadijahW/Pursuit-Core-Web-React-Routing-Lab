@@ -18,10 +18,10 @@ function App() {
 
     <Switch>
      <Route path="/dog/random" component={Dog}/>
-     <Route path="dog/random/:num" component={Dog}/>
+     {/* <Route path="dog/random/:num" component={Dog}/>
      <Route path="/dog/:breed" component={Dog}/>
      <Route path="/cat/random" component={Cat}/>
-     <Route path="/cat/random/:num" component={Cat}/>
+     <Route path="/cat/random/:num" component={Cat}/> */}
     </Switch>
     </div>
   );
