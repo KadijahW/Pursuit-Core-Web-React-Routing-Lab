@@ -6,33 +6,38 @@ class Dog extends Component{
     constructor() {
       super();
       this.state = {
-       numOfDog: 1
+       numOfDog: 1,
+       url:'',
       }
     }
+
+    componentDidMount = () =>{
+        this.getRandomDog()
+    }
+
+    
 
      getRandomDog = async (numOfDog) => {
         let dogUrl = `https://dog.ceo/api/breeds/image/random/${numOfDog}`;
         try {
             const {data} = await axios.get(dogUrl)
             console.log(data)
+            this.setState({
+                url: data.message
+            })
         }catch(error){
             console.log('err', error)
         }
      }
-
+     
     render(){
+        const {url} = this.state
     return(
     <>
 <h1> DOGS!</h1>
 
-{/* <input type="number" min="1" max="10" 
- onChange={} value={}
-/>  */}
-<button onClick={this.getRandomDog}>New Dog</button>
-<button 
-// onClick={}
->Reset</button>
-
+{/* <button onClick={this.getRandomDog}>New Dog</button> */}
+<img src={this.state.url} alt='dog' />
 </>
     )
 }
